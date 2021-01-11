@@ -25,6 +25,7 @@ class Factura(models.Model):
     proveedor = models.ForeignKey(Proveedor, on_delete=models.PROTECT)
     fecha_creacion = models.DateField(_("Date"), default=datetime.date.today)
     fecha_vencimiento = models.DateField(null=True, blank=True)
+    pdf = models.FileField(upload_to="documentos/%Y/%m/%d/")
 
     # Metadata
     class Meta:
