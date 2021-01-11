@@ -7,7 +7,7 @@ class Proveedor(models.Model):
     # Fields
     codigo = models.IntegerField()
     nombre = models.CharField(max_length=16)
-    comentarios = models.TextField()
+    comentarios = models.TextField(blank=True, null=True)
 
     # Metadata
     class Meta:
@@ -15,7 +15,7 @@ class Proveedor(models.Model):
 
     # Methods
     def __str__(self):
-        return self.codigo
+        return self.nombre
 
 
 class Factura(models.Model):
