@@ -15,6 +15,7 @@ admin.site.register(Factura, FacturaAdmin)
 
 class FacturaInline(admin.TabularInline):
     model = Factura
+    extra = 0
 
 @admin.register(Proveedor)
 class ProveedorAdmin(admin.ModelAdmin):
