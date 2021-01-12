@@ -7,7 +7,7 @@ admin.site.register(Proveedor)
 
 # Dedine the admin class for Factura
 class FacturaAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('codigo', 'proveedor', 'fecha_creacion', 'fecha_vencimiento')
 
 # Register the admin class for Factura with the model Factura
 admin.site.register(Factura, FacturaAdmin)
