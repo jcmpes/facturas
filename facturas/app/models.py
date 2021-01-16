@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext as _
 import datetime
 
@@ -35,6 +36,9 @@ class Factura(models.Model):
         ordering = ['-fecha_creacion']
 
     # Methods
+    def get_absolute_url(self):
+        """ Returns the url to access a particular instance of the model """
+        return reverse('invoice-detail', args=[str(self.id)])
+
     def __str__(self):
         return self.codigo
-

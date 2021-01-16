@@ -4,6 +4,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 from app.models import Factura, Proveedor
+from django.views import generic
 
 # Create your views here.
 @never_cache
@@ -26,6 +27,9 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
-    class InvoiceListView(generic.ListView):
-        model = Factura
-        context_object_name = 'invoice_list'
+class InvoiceListView(generic.ListView):
+    model = Factura
+    context_object_name = 'invoice_list'
+
+class InvoiceDetailView(generic.DetailView):
+    model = Factura
