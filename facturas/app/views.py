@@ -25,3 +25,7 @@ def index(request):
     }
 
     return render(request, 'index.html', context=context)
+
+    class InvoiceListView(generic.ListView):
+        model = Factura
+        context_object_name = 'invoice_list'
