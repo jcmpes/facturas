@@ -23,9 +23,12 @@ class Factura(models.Model):
     codigo = models.CharField(max_length=32, help_text='Introduce el código de la factura')
     autor = models.CharField(max_length=16)
     proveedor = models.ForeignKey(Proveedor, on_delete=models.PROTECT)
-    fecha_creacion = models.DateField(_("Date"), default=datetime.date.today)
+    fecha_creacion = models.DateField(_("Fecha"), default=datetime.date.today)
     fecha_vencimiento = models.DateField(null=True, blank=True)
     pdf = models.FileField(upload_to="documentos/%Y/%m/%d/")
+    cantidad = models.DecimalField(_("Precio ex. IVA."), decimal_places=2, max_digits=6)
+    tipo_iva = models.IntegerField(_("% IVA"))
+    observaciones = models.TextField(_("Observaciones"))
 
     # Metadata
     class Meta:
