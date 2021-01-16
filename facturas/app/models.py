@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from decimal import Decimal
 import datetime
 
 # Create your models here.
@@ -39,6 +40,14 @@ class Factura(models.Model):
     def get_absolute_url(self):
         """ Returns the url to access a particular instance of the model """
         return reverse('invoice-detail', args=[str(self.id)])
+
+    def get_pdf_url(self):
+        """ Returns the url to access a particular pdf of the model """
+        return self.pdf
+
+    def get_price_inc_iva(self):
+        """ Returns the price including IVA """
+        return float(self.cantidad) * ((self.tipo_iva / 100) + 1)
 
     def __str__(self):
         return self.codigo

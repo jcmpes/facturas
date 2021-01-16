@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Title: {{ object.title }}</h1>
+
+    <p><strong>Código:</strong> {{ object.codigo }}</p>
+    <p><strong>Proveedor:</strong> <a href="">{{ object.proveedor }} </a></p>
+    <p><strong>Autor:</strong> {{ object.autor }} </p>
+    <p><strong>Fecha de creación:</strong> {{ object.fecha_creacion }} </p>
+    <p><strong>Fecha de vencimiento:</strong> {{ object.fecha_vencimiento }} </p>
+    <p><strong>Cantidad sin IVA:</strong> {{ object.cantidad }} €</p>
+    <p><strong>Cantidad inc. IVA:</strong> {{ object.get_price_inc_iva }} €</p>
+    <p><strong>Tipo de IVA:</strong> {{ object.tipo_iva }} </p>
+    <p><strong>Observaciones:</strong> {{ object.observaciones }} </p>
+
+    <div style="margin-left: 20px; margin-top: 20px">
+        <p><strong>PDF:</strong> <a href="{{ object.pdf.url }}"> {{ object.get_pdf_url }} </a></p>
+    </div>
+{% endblock %}
