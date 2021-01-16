@@ -27,7 +27,7 @@ class Factura(models.Model):
     fecha_vencimiento = models.DateField(null=True, blank=True)
     pdf = models.FileField(upload_to="documentos/%Y/%m/%d/")
     cantidad = models.DecimalField(_("Precio ex. IVA."), decimal_places=2, max_digits=6)
-    tipo_iva = models.IntegerField(_("% IVA"))
+    tipo_iva = models.IntegerField(_("% IVA"), default=21)
     observaciones = models.TextField(_("Observaciones"))
 
     # Metadata
