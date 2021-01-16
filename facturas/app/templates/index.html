@@ -3,4 +3,10 @@
 {% block content %}
     <h1>Aplicación de Facturas</h1>
     <p>Bienvenido a la aplicación de facturas desarrollada por <em>Juan Carlos Marcos</em></p>
+    <h2>Contenido dinámico</h2>
+    <p>La librería de facturas tiene:</p>
+    <ul>
+        <li>{{ num_invoices }}<strong>facturas</strong></li>
+        <li>{{ num_providers }}<strong>proveedores</strong></li>
+    </ul>
 {% endblock %}
