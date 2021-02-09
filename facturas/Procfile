@@ -1,0 +1,1 @@
+web: gunicorn facturas.wsgi --log-file -
